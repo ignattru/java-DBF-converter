@@ -38,9 +38,6 @@ public class deadallConvert {
                 }
                 fieldsDefinition[4].setType(DBFDataType.DATE);
                 fieldsDefinition[11].setType(DBFDataType.DATE);
-                /* Уберу преобразование поля flatl в NUMERIC 4 так как в него записывают мусор.
-                fieldsDefinition[21].setType(DBFDataType.NUMERIC);
-                fieldsDefinition[21].setLength(4);*/
                 fieldsDefinition[24].setType(DBFDataType.DATE);
 
                 writer.setFields(fieldsDefinition);
@@ -74,21 +71,7 @@ public class deadallConvert {
                                 row[i] = formatDateSm;
                             }
                         }
-                        /* Проверка на поле 21 flatl в dead_all уберу так как тут может
-                         быть мусор вроде номера квартиры "47-48", "общ." и тд.
-                         На все не проверишь, так как поле char.
-
-                        if (i == 21) {
-                            String flatlNum = row[i].toString();
-                            if (flatlNum.length() == 0){
-                                row[i] = null;
-                            }
-                            else {
-                                int flatlNumParse = Integer.parseInt(row[i].toString());
-                                row[i] = flatlNumParse;
-                            }
-                        }
-                         */
+                        
                         if (i == 24) {
                             String dateAzsm = row[i].toString();
                             if (dateAzsm.length() == 0){
